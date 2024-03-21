@@ -1,0 +1,94 @@
+$layout-breakpoint-mobile: 600px;
+
+@mixin mobile{
+    @media screen and (max-width: $layout-breakpoint-mobile) {
+        @content
+    }
+}
+
+#quote-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column-reverse;
+    height: 50vh;
+    justify-content: space-evenly;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 3px;
+    @include mobile() {
+        width: 80%;
+    }
+
+
+    #text{
+        margin: 0;
+        display: inline-block;
+        font-size: 2.98rem;
+        @include mobile() {
+            font-size: 2rem;
+        }
+        font-weight: 300;
+    }
+
+    #text::before {
+        content: '" ';
+        font-size: 5rem;
+    }
+
+    #author {
+        font-weight: 100;
+        font-size: 0.8rem;
+        display: inline-block;
+    }
+
+    button, #tweet-quote {
+        padding: 10px 15px;
+        border-radius: 3px;
+        font-weight: 500;
+        transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    button:hover, #tweet-quote:hover {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+        background-color: transparent;
+        color: #fff;
+
+        & svg {
+            filter: invert(100%);
+        }
+    }
+
+    
+    button {
+        font-family: "Montserrat Alternates", sans-serif;
+        border: none;
+        background-color: #fff;
+        margin: 1rem;
+        margin-left: 0;
+        letter-spacing: -.5px;
+        font-size: .8rem;
+        cursor: pointer;
+    }
+
+    #tweet-quote {
+        text-decoration: none;
+        color: #000;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        background-color: #fff;
+        font-size: .8rem;
+    
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+
+
+    }
+
+}
